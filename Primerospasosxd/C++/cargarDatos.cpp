@@ -39,7 +39,7 @@ void cargarDatos_empleados(const string& nombreArchivo, Lista<Empleado>& lista_e
 				nuevo_empleado.act_lab>>nuevo_empleado.tiene_hijos>>nuevo_empleado.num_hijos>>nuevo_empleado.nombre_sucursal) {
                 lista_empleados.insertar_final(nuevo_empleado);
             } else {
-                cerr << "No se pudieron leer los atributos correctamente." <<endl;
+                cerr << "No se pudieron leer los atributos correctamente, sad." <<endl;
             }
         }
         archivo.close();

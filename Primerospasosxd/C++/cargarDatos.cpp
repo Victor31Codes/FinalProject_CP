@@ -31,15 +31,19 @@ void cargarDatos_empleados(const string& nombreArchivo, Lista<Empleado>& lista_e
         while (getline(archivo, linea)) {
             istringstream iss(linea);
             Empleado nuevo_empleado;
-            if (iss >> nuevo_empleado.id_sucursal>>nuevo_empleado.id_empleado>>nuevo_empleado.nombre_empleado
-				>>nuevo_empleado.apellido_empleado>>nuevo_empleado.tipo_ident>>nuevo_empleado.ident>>
-				nuevo_empleado.sexo>>nuevo_empleado.cel>>nuevo_empleado.tel>>nuevo_empleado.correo>>
-				nuevo_empleado.fecha_nac_empleado>>nuevo_empleado.ciudad_nac_empleado>>nuevo_empleado.pais_nac_empleado>>
-				nuevo_empleado.ciudad_res_empleado>>nuevo_empleado.dir_empleado>>nuevo_empleado.barrio_empleado>>
-				nuevo_empleado.act_lab>>nuevo_empleado.tiene_hijos>>nuevo_empleado.num_hijos>>nuevo_empleado.nombre_sucursal) {
+            if (iss >> nuevo_empleado.id_sucursal >> nuevo_empleado.id_empleado >> nuevo_empleado.nombre_empleado
+                >> nuevo_empleado.apellido_empleado >> nuevo_empleado.tipo_ident >> nuevo_empleado.ident >>
+                nuevo_empleado.sexo >> nuevo_empleado.cel >> nuevo_empleado.tel >> nuevo_empleado.correo >>
+                nuevo_empleado.fecha_nac_empleado >> nuevo_empleado.ciudad_nac_empleado >> nuevo_empleado.pais_nac_empleado >>
+                nuevo_empleado.ciudad_res_empleado >> nuevo_empleado.dir_empleado >> nuevo_empleado.barrio_empleado >>
+                nuevo_empleado.act_lab >> nuevo_empleado.tiene_hijos >> nuevo_empleado.num_hijos >> nuevo_empleado.nombre_sucursal) {
+
+                // Calcular la edad y almacenarla
+                nuevo_empleado.calcularEdad();
+
                 lista_empleados.insertar_final(nuevo_empleado);
             } else {
-                cerr << "No se pudieron leer los atributos correctamente, sad." <<endl;
+                cerr << "No se pudieron leer los atributos correctamente." << endl;
             }
         }
         archivo.close();

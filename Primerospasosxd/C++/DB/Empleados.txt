@@ -1,0 +1,3 @@
+1 1 Jhon Martinez CC 1234567891 M 987456321 1594873 jmartinez@correo.gmail 15/05/1984 Bogota Colombia Bogota Calle58#14 Barrio1 Artes S 2 Bogota1
+1 2 Eugenio Gomez CC 1234567892 M 987456322 1594874 egomez@correo.gmail 12/07/1990 Medellin Colombia Bogota Calle78#12 Barrio2 Ingenieria S 1 Bogota2
+1 3 Sara Ramirez CC 1234567893 F 987456323 1594875 sramirez@correo.gmail 18/04/1982 Medellin Colombia Bogota Calle88#2 Barrio3 Medicina N 0 Bogota1

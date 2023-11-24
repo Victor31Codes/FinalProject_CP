@@ -3,6 +3,9 @@
 #include "lista.h"
 #include "hijo.h"
 #include "empleado.h"
+#include "ciudad.h"
+#include "sucursal.h"
+
 using namespace std;
 
 void cargarDatos_hijos(const string& nombreArchivo, Lista<Hijo>& lista_hijos){
@@ -39,11 +42,49 @@ void cargarDatos_empleados(const string& nombreArchivo, Lista<Empleado>& lista_e
 				nuevo_empleado.act_lab>>nuevo_empleado.tiene_hijos>>nuevo_empleado.num_hijos>>nuevo_empleado.nombre_sucursal) {
                 lista_empleados.insertar_final(nuevo_empleado);
             } else {
-                cerr << "No se pudieron leer los atributos correctamente, sad." <<endl;
+                cerr << "No se pudieron leer los atributos correctamente." <<endl;
             }
         }
         archivo.close();
     } else {
         cerr << "No se pudo abrir el archivo." << endl;
+    }
+}
+
+void cargarDatos_ciudades(const string& nombreArchivo, Lista<Ciudad>& lista_ciudades){
+	ifstream archivo(nombreArchivo);
+    if (archivo.is_open()) {
+        string linea;
+        while (getline(archivo, linea)) {
+            istringstream iss(linea);
+            Ciudad nueva_ciudad;
+            if (iss >> nueva_ciudad.nombre_ciudad) {
+                lista_ciudades.insertar_final(nueva_ciudad);
+            } else {
+                cerr << "No se pudieron leer los atributos correctamente." << endl;
+            }
+        }
+        archivo.close();
+    } else {
+        cerr << "No se pudo abrir el archivo." << endl;
+    }	
+}
+
+void cargarDatos_sucursales(const string& nombreArchivo, Lista<Sucursal>& lista_sucursales){
+	ifstream archivo(nombreArchivo);
+    if (archivo.is_open()) {
+        string linea;
+        while (getline(archivo, linea)) {
+            istringstream iss(linea);
+            Sucursal nueva_sucursal;
+            if (iss >> nueva_sucursal.id_ciudad>> nueva_sucursal.nombre_sucursal >> nueva_sucursal.dir_sucursal >> nueva_sucursal.barrio_sucursal>>nueva_sucursal.nombre_gerente) {
+                lista_sucursales.insertar_final(nueva_sucursal);
+            } else {
+                cerr << "No se pudieron leer los atributos correctamente." <<endl;
+            }
+        }
+        archivo.close();
+    } else {
+        cerr << "No se pudo abrir el archivo." <<endl;
     }
 }

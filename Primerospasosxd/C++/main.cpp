@@ -4,13 +4,18 @@
 #include "lista.h"
 #include "hijo.h"
 #include "empleado.h"
+#include "ciudad.h"
+#include "sucursal.h"
+
 using namespace std;
 
 void cargarDatos_hijos(const string& nombreArchivo, Lista<Hijo>& lista_hijos);
 void cargarDatos_empleados(const string& nombreArchivo, Lista<Empleado>& lista_empleados);
+void cargarDatos_ciudades(const string& nombreArchivo, Lista<Ciudad>& lista_ciudades);
+void cargarDatos_sucursales(const string& nombreArchivo, Lista<Sucursal>& lista_sucursales);
 
 int main(int argc, char** argv) {
-	
+
 	Lista<Hijo> lista_hijos;
     cargarDatos_hijos("DB//Hijos.txt", lista_hijos);
     nodo<Hijo>* actual_hijo = lista_hijos.obtener_cabecera();
@@ -47,6 +52,23 @@ int main(int argc, char** argv) {
 				<<actual_empleado->Dato.nombre_sucursal<<" "<<endl;
         actual_empleado = actual_empleado->sig;
     }
-
+    Lista<Ciudad> lista_ciudades;
+    cargarDatos_ciudades("DB//Ciudades.txt", lista_ciudades);
+    nodo<Ciudad>* actual_ciudad=lista_ciudades.obtener_cabecera();
+	while (actual_ciudad != nullptr) {
+	        cout << actual_ciudad->Dato.nombre_ciudad<< endl;
+	    actual_ciudad = actual_ciudad->sig;
+    }
+    Lista<Sucursal> lista_sucursales;
+    cargarDatos_sucursales("DB//Sucursales.txt", lista_sucursales);
+    nodo<Sucursal>* actual_sucursal=lista_sucursales.obtener_cabecera();
+	while (actual_sucursal != nullptr) {
+	        cout << actual_sucursal->Dato.id_ciudad<<" "
+	        	<<actual_sucursal->Dato.nombre_sucursal<<" "
+	        	<<actual_sucursal->Dato.dir_sucursal<<" "
+	        	<<actual_sucursal->Dato.barrio_sucursal<<" "
+	        	<<actual_sucursal->Dato.nombre_gerente<<endl;
+	    actual_sucursal = actual_sucursal->sig;
+    }
     return 0;
 }

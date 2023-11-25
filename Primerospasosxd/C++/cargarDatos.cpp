@@ -62,7 +62,7 @@ void cargarDatos_ciudades(const string& nombreArchivo, Lista<Ciudad>& lista_ciud
         while (getline(archivo, linea)) {
             istringstream iss(linea);
             Ciudad nueva_ciudad;
-            if (iss >> nueva_ciudad.nombre_ciudad) {
+            if (iss >>nueva_ciudad.id_ciudad>> nueva_ciudad.nombre_ciudad) {
                 lista_ciudades.insertar_final(nueva_ciudad);
             } else {
                 cerr << "No se pudieron leer los atributos correctamente." << endl;
@@ -81,7 +81,7 @@ void cargarDatos_sucursales(const string& nombreArchivo, Lista<Sucursal>& lista_
         while (getline(archivo, linea)) {
             istringstream iss(linea);
             Sucursal nueva_sucursal;
-            if (iss >> nueva_sucursal.id_ciudad>> nueva_sucursal.nombre_sucursal >> nueva_sucursal.dir_sucursal >> nueva_sucursal.barrio_sucursal>>nueva_sucursal.nombre_gerente) {
+            if (iss >> nueva_sucursal.id_ciudad>>nueva_sucursal.id_sucursal>> nueva_sucursal.nombre_sucursal >> nueva_sucursal.dir_sucursal >> nueva_sucursal.barrio_sucursal>>nueva_sucursal.nombre_gerente) {
                 lista_sucursales.insertar_final(nueva_sucursal);
             } else {
                 cerr << "No se pudieron leer los atributos correctamente." <<endl;

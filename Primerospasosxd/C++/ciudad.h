@@ -5,6 +5,7 @@ using namespace std;
 
 class Ciudad {
 	public:
+	int id_ciudad;
     string nombre_ciudad; 
 };
 

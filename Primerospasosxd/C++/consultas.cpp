@@ -15,6 +15,7 @@ void empleadoxsucursal(Lista<Sucursal>& lista_sucursales, Lista<Empleado>& lista
 		nodo<Empleado>* actual_empleado = lista_empleados.obtener_cabecera();
 		while (actual_empleado != nullptr){
 			if(actual_sucursal->Dato.id_sucursal==actual_empleado->Dato.id_sucursal){
+
 				cont=cont+1;
 			}
 			actual_empleado = actual_empleado->sig;

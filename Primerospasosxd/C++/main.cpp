@@ -11,6 +11,7 @@
 using namespace std;
 
 void cargarDatos_hijos(const string& nombreArchivo, Lista<Hijo>& lista_hijos);
+void cargarDatos_empleados(const string& nombreArchivo, Lista<Empleado>& lista_empleados, Lista<Hijo>& lista_hijos);
 void cargarDatos_ciudades(const string& nombreArchivo, Lista<Ciudad>& lista_ciudades);
 void cargarDatos_sucursales(const string& nombreArchivo, Lista<Sucursal>& lista_sucursales);
 void empleadoxsucursal(Lista<Sucursal>& lista_sucursales, Lista<Empleado>& lista_empleados);

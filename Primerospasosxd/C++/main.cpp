@@ -17,18 +17,22 @@ void cargarDatos_sucursales(const string& nombreArchivo, Lista<Sucursal>& lista_
 void empleadoxsucursal(Lista<Sucursal>& lista_sucursales, Lista<Empleado>& lista_empleados);
 void clasificarhijos(Lista<Hijo>& lista_hijos);
 
+
 int main(int argc, char** argv) {
-	
+
 	Lista<Ciudad> lista_ciudades;
     cargarDatos_ciudades("DB//Ciudades.txt", lista_ciudades);
     /*nodo<Ciudad>* actual_ciudad=lista_ciudades.obtener_cabecera();
 	while (actual_ciudad != nullptr) {
-	        cout << actual_ciudad->Dato.nombre_ciudad<< endl;
+			cout << actual_ciudad->Dato.id_ciudad<<" "
+	        	<< actual_ciudad->Dato.nombre_ciudad<< endl;
+
 	    actual_ciudad = actual_ciudad->sig;
     }*/
     
     Lista<Sucursal> lista_sucursales;
     cargarDatos_sucursales("DB//Sucursales.txt", lista_sucursales);
+
     /*nodo<Sucursal>* actual_sucursal=lista_sucursales.obtener_cabecera();
 	while (actual_sucursal != nullptr) {
 	        cout << actual_sucursal->Dato.id_ciudad<<" "
@@ -38,6 +42,7 @@ int main(int argc, char** argv) {
 	        	<<actual_sucursal->Dato.barrio_sucursal<<" "
 	        	<<actual_sucursal->Dato.nombre_gerente<<endl;
 	    actual_sucursal = actual_sucursal->sig;
+
     }*/
     
     Lista<Empleado> lista_empleados;
@@ -82,5 +87,6 @@ int main(int argc, char** argv) {
 	
     empleadoxsucursal(lista_sucursales, lista_empleados);
     clasificarhijos(lista_hijos);
+  
     return 0;
 }

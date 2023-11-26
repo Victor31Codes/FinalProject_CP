@@ -136,5 +136,3 @@ bool Lista<T>::modificar(T infoNueva, int pos) {
 }
 
 #endif
-
-

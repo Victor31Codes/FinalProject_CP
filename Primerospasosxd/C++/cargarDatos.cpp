@@ -45,8 +45,8 @@ void cargarDatos_empleados(const string& nombreArchivo, Lista<Empleado>& lista_e
                 nuevo_empleado.act_lab >> nuevo_empleado.tiene_hijos >> nuevo_empleado.num_hijos >> nuevo_empleado.nombre_sucursal) {
 
                 // Calcular la edad y almacenarla
-                nuevo_empleado.edad=calcularEdad(nuevo_empleado.fecha_nac_empleado);
 
+                nuevo_empleado.edad=calcularEdad(nuevo_empleado.fecha_nac_empleado);
                 lista_empleados.insertar_final(nuevo_empleado);
             } else {
                 cerr << "No se pudieron leer los atributos correctamente." <<endl;
@@ -65,7 +65,7 @@ void cargarDatos_ciudades(const string& nombreArchivo, Lista<Ciudad>& lista_ciud
         while (getline(archivo, linea)) {
             istringstream iss(linea);
             Ciudad nueva_ciudad;
-            if (iss >> nueva_ciudad.nombre_ciudad) {
+            if (iss >>nueva_ciudad.id_ciudad>> nueva_ciudad.nombre_ciudad) {
                 lista_ciudades.insertar_final(nueva_ciudad);
             } else {
                 cerr << "No se pudieron leer los atributos correctamente." << endl;
@@ -85,8 +85,9 @@ void cargarDatos_sucursales(const string& nombreArchivo, Lista<Sucursal>& lista_
             istringstream iss(linea);
             Sucursal nueva_sucursal;
             if (iss >> nueva_sucursal.id_ciudad>>nueva_sucursal.id_sucursal>> nueva_sucursal.nombre_sucursal >> nueva_sucursal.dir_sucursal >> nueva_sucursal.barrio_sucursal>>nueva_sucursal.nombre_gerente) {
-                
-				lista_sucursales.insertar_final(nueva_sucursal);
+          
+				        lista_sucursales.insertar_final(nueva_sucursal);
+
             } else {
                 cerr << "No se pudieron leer los atributos correctamente." <<endl;
             }

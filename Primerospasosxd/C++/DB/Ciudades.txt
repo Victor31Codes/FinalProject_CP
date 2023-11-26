@@ -1,10 +1,10 @@
-Bogota
-Medellin
-Cali
-Barranquilla
-Cartagena
-Bucaramanga
-Villavicencio
-Ibague
-Pereira
-Pasto
+1 Bogota
+2 Medellin
+3 Cali
+4 Barranquilla
+5 Cartagena
+6 Bucaramanga
+7 Villavicencio
+8 Ibague
+9 Pereira
+10 Pasto

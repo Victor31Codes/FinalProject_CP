@@ -1,5 +1,9 @@
 #ifndef EMPLEADO_H
 #define EMPLEADO_H
+#include <iostream>
+#include <sstream>
+#include <ctime>
+#include <chrono>
 
 using namespace std;
 

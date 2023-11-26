@@ -11,7 +11,6 @@
 using namespace std;
 
 void cargarDatos_hijos(const string& nombreArchivo, Lista<Hijo>& lista_hijos);
-void cargarDatos_empleados(const string& nombreArchivo, Lista<Empleado>& lista_empleados);
 void cargarDatos_ciudades(const string& nombreArchivo, Lista<Ciudad>& lista_ciudades);
 void cargarDatos_sucursales(const string& nombreArchivo, Lista<Sucursal>& lista_sucursales);
 void empleadoxsucursal(Lista<Sucursal>& lista_sucursales, Lista<Empleado>& lista_empleados);
@@ -40,8 +39,20 @@ int main(int argc, char** argv) {
 	    actual_sucursal = actual_sucursal->sig;
     }*/
     
+    Lista<Hijo> lista_hijos;
+    cargarDatos_hijos("DB//Hijos.txt", lista_hijos);
+    /*nodo<Hijo>* actual_hijo = lista_hijos.obtener_cabecera();
+    while (actual_hijo != nullptr) {
+        cout << actual_hijo->Dato.id_empleado << " "
+                << actual_hijo->Dato.id_hijo << " "
+                << actual_hijo->Dato.nombre_hijo << " "
+                << actual_hijo->Dato.nac_hijo <<" "
+                << "Edad: " << actual_hijo->Dato.edad << " anios" << endl;
+        actual_hijo = actual_hijo->sig;
+    }*/
+    
     Lista<Empleado> lista_empleados;
-    cargarDatos_empleados("DB//Empleados.txt", lista_empleados);
+    cargarDatos_empleados("DB//Empleados.txt", lista_empleados, lista_hijos);
     /*nodo<Empleado>* actual_empleado =lista_empleados.obtener_cabecera();
     while (actual_empleado != nullptr) {
         cout << actual_empleado->Dato.id_sucursal <<" "
@@ -68,17 +79,7 @@ int main(int argc, char** argv) {
         actual_empleado = actual_empleado->sig;
     }*/
     
-	Lista<Hijo> lista_hijos;
-    cargarDatos_hijos("DB//Hijos.txt", lista_hijos);
-    /*nodo<Hijo>* actual_hijo = lista_hijos.obtener_cabecera();
-    while (actual_hijo != nullptr) {
-        cout << actual_hijo->Dato.id_empleado << " "
-                << actual_hijo->Dato.id_hijo << " "
-                << actual_hijo->Dato.nombre_hijo << " "
-                << actual_hijo->Dato.nac_hijo <<" "
-                << "Edad: " << actual_hijo->Dato.edad << " anios" << endl;
-        actual_hijo = actual_hijo->sig;
-    }*/
+	
 	
     empleadoxsucursal(lista_sucursales, lista_empleados);
     clasificarhijos(lista_hijos);

@@ -9,6 +9,7 @@
 using namespace std;
 
 int calcularEdad(string fecha_nac);
+Lista<Hijo> agregarHijos(int id_empleado,Lista<Hijo>& lista_hijos);
 
 void cargarDatos_hijos(const string& nombreArchivo, Lista<Hijo>& lista_hijos){
 	ifstream archivo(nombreArchivo);
@@ -30,7 +31,7 @@ void cargarDatos_hijos(const string& nombreArchivo, Lista<Hijo>& lista_hijos){
     }
 }
 
-void cargarDatos_empleados(const string& nombreArchivo, Lista<Empleado>& lista_empleados) {
+void cargarDatos_empleados(const string& nombreArchivo, Lista<Empleado>& lista_empleados, Lista<Hijo>& lista_hijos) {
     ifstream archivo(nombreArchivo);
     if (archivo.is_open()) {
         string linea;
@@ -46,7 +47,12 @@ void cargarDatos_empleados(const string& nombreArchivo, Lista<Empleado>& lista_e
 
                 // Calcular la edad y almacenarla
                 nuevo_empleado.edad=calcularEdad(nuevo_empleado.fecha_nac_empleado);
-
+                if(nuevo_empleado.tiene_hijos=='S'){
+                	cout<<nuevo_empleado.nombre_empleado<<endl;
+					nuevo_empleado.hijos=agregarHijos(nuevo_empleado.id_empleado, lista_hijos);
+				}else{
+					nuevo_empleado.tiene_hijos==NULL;
+				}
                 lista_empleados.insertar_final(nuevo_empleado);
             } else {
                 cerr << "No se pudieron leer los atributos correctamente." <<endl;
@@ -97,7 +103,18 @@ void cargarDatos_sucursales(const string& nombreArchivo, Lista<Sucursal>& lista_
     }
 }
 
-
+Lista<Hijo> agregarHijos(int id_empleado, Lista<Hijo>& lista_hijos){
+	Lista<Hijo> hijoxempleado;
+	nodo<Hijo>* actual_hijo = lista_hijos.obtener_cabecera();
+	while (actual_hijo!= nullptr) {
+		if(actual_hijo->Dato.id_empleado==id_empleado){
+			hijoxempleado.insertar_final(actual_hijo->Dato);
+			cout<<"	"<<actual_hijo->Dato.id_empleado<<" "<<actual_hijo->Dato.nombre_hijo<<endl;
+		}
+		actual_hijo=actual_hijo->sig;
+	}
+	return hijoxempleado;
+}
 
 void clasificarhijos(Lista<Hijo>& lista_hijos){
 	Lista<Hijo> lista_hijos05;

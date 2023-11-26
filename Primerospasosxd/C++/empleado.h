@@ -1,6 +1,7 @@
 #ifndef EMPLEADO_H
 #define EMPLEADO_H
-
+#include "lista.h"
+#include "hijo.h"
 using namespace std;
 
 class Empleado {
@@ -12,6 +13,7 @@ class Empleado {
 		ciudad_res_empleado, dir_empleado, barrio_empleado, act_lab,
 		nombre_sucursal;
 	char sexo, tiene_hijos;
+	Lista<Hijo> hijos;
 };
 
 
